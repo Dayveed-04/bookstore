@@ -749,7 +749,7 @@
                             <circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle>
                             <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
                         </svg>
-                        <h2 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 0.5rem;">Your cart is empty</h2>
+                        <h2 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 0.5rem; color: hsl(var(--foreground));">Your cart is empty</h2>
                         <p style="color: hsl(var(--muted-foreground)); margin-bottom: 1.5rem;">Start adding some books to your cart!</p>
                         <button class="btn btn-primary" onclick="showPage('books')">Browse Books</button>
                     </div>
@@ -767,7 +767,7 @@
                     <div>
                         <div style="display: flex; flex-direction: column; gap: 1rem;">
                             ${cart.map(item => `
-                                <div style="background: white; border-radius: 0.5rem; padding: 1rem; box-shadow: var(--card-shadow);">
+                                <div style="background: hsl(var(--muted)); border-radius: 0.5rem; padding: 1rem; box-shadow: var(--card-shadow); color: hsl(var(--foreground));">
                                     <div style="display: flex; gap: 1rem;">
                                         <img src="${item.coverUrl}" alt="${item.title}" style="width: 6rem; height: 8rem; object-fit: cover; border-radius: 0.5rem; cursor: pointer;" onclick="showBookDetails(${item.id})">
                                         
@@ -788,9 +788,8 @@
                                                         <svg style="width: 1rem; height: 1rem;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
                                                     </button>
                                                 </div>
-
                                                 <button style="background: transparent; border: none; color: hsl(var(--destructive)); cursor: pointer; padding: 0.5rem;" onclick="removeFromCart(${item.id})">
-                                                    <div style="color: black;">
+                                                    <div style="color:hsl(var(--foreground));">
                                                         <svg style="width: 1.25rem; height: 1.25rem;" 
                                                             viewBox="0 0 24 24" fill="none" 
                                                             stroke="currentColor" stroke-width="2">
@@ -809,7 +808,7 @@
 
                     <div>
                         <div style="position: sticky; top: 5rem; background: linear-gradient(to bottom right, hsl(var(--primary) / 0.05), hsl(var(--accent) / 0.05)); border-radius: 0.5rem; padding: 1.5rem;">
-                            <h2 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 1rem;">Order Summary</h2>
+                            <h2 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 1rem; color: hsl(var(--foreground)); ">Order Summary</h2>
                             
                             <div style="border-bottom: 1px solid hsl(var(--border)); padding-bottom: 1rem; margin-bottom: 1rem;">
                               ${cart.map(item => {
@@ -818,11 +817,11 @@
                              return `
                              <div style="display: flex; justify-content: space-between; font-size: 0.875rem; margin-bottom: 0.5rem;">
                                 <span style="color: hsl(var(--muted-foreground));">${item.title} x ${item.quantity}</span>
-                                 <span style="font-weight: 500;">₦${itemTotal.toLocaleString('en-NG')}</span>
+                                 <span style="font-weight: 500; color: hsl(var(--foreground));">₦${itemTotal.toLocaleString('en-NG')}</span>
                             </div>      `;   }).join('')}
                         </div>
 
-                        <div style="display: flex; justify-content: space-between; font-size: 1.125rem; font-weight: 700; margin-bottom: 1.5rem;">
+                        <div style="display: flex; justify-content: space-between; font-size: 1.125rem; font-weight: 700; margin-bottom: 1.5rem; color: hsl(var(--foreground));">
                            <span>Total</span>
                             <span style="color: hsl(var(--primary));">₦${total.toLocaleString('en-NG')}</span>
                         </div>
