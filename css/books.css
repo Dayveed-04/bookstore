@@ -1,0 +1,11 @@
+/* Books page specific styles */
+
+/* Search and filter section styles are mostly inline in the HTML */
+/* Book grid and card styles are in main.css */
+
+/* Any additional books page specific styles can be added here */
+
+/* Example: If you want books page specific overrides */
+[data-theme="dark"] .book-details {
+    background: hsl(var(--muted));
+}

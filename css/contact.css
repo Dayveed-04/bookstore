@@ -1,0 +1,6 @@
+
+
+[data-theme="dark"] .contact-content {
+    background: hsl(var(--muted));
+}
+

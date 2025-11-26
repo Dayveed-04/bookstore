@@ -1,0 +1,7 @@
+/* Cart page specific styles */
+
+[data-theme="dark"] .cart-container {
+    background: hsl(var(--muted));
+}
+
+/* Any additional cart-specific styles can go here */

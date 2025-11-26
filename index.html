@@ -1,23 +1,24 @@
-<!DOCTYPE html>
+  <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BookHaven - Your Online Bookstore</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/home.css">
 </head>
 <body>
     <nav>
         <div class="nav-container">
-            <a href="#" class="nav-logo" onclick="showPage('home'); return false;">
+            <a href="index.html" class="nav-logo">
                 <svg class="icon-lg" viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>
                 <span>BookHaven</span>
             </a>
             <div class="nav-links">
-                <a href="#" class="nav-link" onclick="showPage('home'); return false;">Home</a>
-                <a href="#" class="nav-link" onclick="showPage('books'); return false;">Browse Books</a>
-                <a href="#" class="nav-link" onclick="showPage('about'); return false;">About</a>
-                <a href="#" class="nav-link" onclick="showPage('contact'); return false;">Contact</a>
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="books.html" class="nav-link">Browse Books</a>
+                <a href="about.html" class="nav-link">About</a>
+                <a href="contact.html" class="nav-link">Contact</a>
                 <button class="theme-toggle" onclick="toggleTheme()" title="Toggle dark mode">
                     <svg class="icon" id="themeIcon" viewBox="0 0 24 24">
                         <circle cx="12" cy="12" r="5"></circle>
@@ -31,332 +32,192 @@
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
                 </button>
-                <button class="cart-button" onclick="showPage('cart')">
+                <a href="cart.html" class="cart-button">
                     <svg class="icon" viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
                     <span class="cart-badge" id="cartBadge">0</span>
-                </button>
+                </a>
             </div>
         </div>
     </nav>
 
-    <!-- Home Page -->
-    <div id="homePage" class="page active">
-        <!-- Hero Section -->
-        <section class="hero">
-            <div class="hero-bg"></div>
-            <div class="hero-overlay"></div>
-            <div class="hero-overlay-bottom"></div>
-            <div class="container">
-                <div class="hero-content">
-                    <div class="hero-text">
-                        <div class="hero-badge animate-fade-in">
-                            <svg class="icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
-                            <span>40+ Curated Books Available</span>
-                        </div>
-                        <h1 class="animate-fade-in" style="animation-delay: 100ms;">
-                            Discover Your Next
-                            <span class="hero-gradient-text">Great Adventure</span>
-                        </h1>
-                        <p class="animate-fade-in" style="animation-delay: 200ms;">
-                            Explore our carefully curated collection of books across every genre. From timeless classics 
-                            to contemporary bestsellers.
-                        </p>
-                        <div class="hero-features animate-fade-in" style="animation-delay: 300ms;">
-                          
-                        </div>
-                        <div class="hero-buttons animate-fade-in" style="animation-delay: 400ms;">
-                            <button class="btn btn-lg btn-primary" onclick="showPage('books')">
-                                Browse Collection
-                                <svg class="icon" viewBox="0 0 24 24" style="margin-left: 0.5rem;"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Category Showcase -->
-        <section class="category-section">
-            <div class="container">
-                <div class="section-header">
-                    <h2>Explore by Category</h2>
-                    <p>Find your next favorite book in any genre</p>
-                </div>
-                <div class="category-grid" id="categoryGrid"></div>
-            </div>
-        </section>
-
-        <!-- Featured Books -->
-        <section class="featured-section">
-            <div class="container">
-                <div class="section-header animate-fade-in">
-                    <div class="featured-badge">
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-overlay"></div>
+        <div class="hero-overlay-bottom"></div>
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <div class="hero-badge animate-fade-in">
                         <svg class="icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
-                        <span>Editor's Choice</span>
+                        <span>40+ Curated Books Available</span>
                     </div>
-                    <h2>Featured Books</h2>
-                    <p style="max-width: 42rem; margin: 0 auto;">Handpicked selections from our collection—the books everyone's talking about</p>
-                </div>
-                <div class="books-grid" id="featuredBooksGrid"></div>
-                <div class="text-center animate-fade-in">
-                    <button class="btn btn-lg btn-outline" onclick="showPage('books')">
-                        View All Books
-                        <svg class="icon" viewBox="0 0 24 24" style="margin-left: 0.5rem;"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-                    </button>
-                </div>
-            </div>
-        </section>
-
-        <!-- Stats Section -->
-        <section class="stats-section">
-            <div class="container">
-                <div class="section-header animate-fade-in">
-                    <h2>Why Readers Choose Us</h2>
-                    <p>Join our growing community of book enthusiasts</p>
-                </div>
-                <div class="stats-grid">
-                    <div class="stat-item animate-fade-in">
-                        <div class="stat-icon">
-                            <svg class="icon-xl" viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>
-                        </div>
-                        <div class="stat-value">45+</div>
-                        <div class="stat-label">Books Available</div>
-                        <div class="stat-description">Across all genres</div>
-                    </div>
-                    <div class="stat-item animate-fade-in" style="animation-delay: 100ms;">
-                        <div class="stat-icon">
-                            <svg class="icon-xl" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
-                        </div>
-                        <div class="stat-value">5,000+</div>
-                        <div class="stat-label">Happy Readers</div>
-                        <div class="stat-description">Worldwide community</div>
-                    </div>
-                    <div class="stat-item animate-fade-in" style="animation-delay: 200ms;">
-                        <div class="stat-icon">
-                            <svg class="icon-xl" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
-                        </div>
-                        <div class="stat-value">4.9</div>
-                        <div class="stat-label">Average Rating</div>
-                        <div class="stat-description">Customer reviews</div>
-                    </div>
-                    <div class="stat-item animate-fade-in" style="animation-delay: 300ms;">
-                        <div class="stat-icon">
-                            <svg class="icon-xl" viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline></svg>
-                        </div>
-                        <div class="stat-value">98%</div>
-                        <div class="stat-label">Satisfaction Rate</div>
-                        <div class="stat-description">Return customers</div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Deals of the Day -->
-        <section class="deals-section">
-            <div class="container">
-                <div class="section-header animate-fade-in">
-                    <h2>Today's Hot Deals</h2>
-                    <p>Limited time offers - grab them before they're gone</p>
-                </div>
-                <div class="books-grid" id="dealsGrid"></div>
-            </div>
-        </section>
-
-        <!-- Newsletter -->
-        <section class="newsletter-section">
-            <div class="container">
-                <div class="newsletter-content">
-                    <div class="newsletter-card">
-                        <div class="text-center animate-fade-in">
-                            <div class="newsletter-icon">
-                                <svg class="icon-xl" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
-                            </div>
-                            <h2 style="font-size: 2.25rem; font-weight: 700; margin-bottom: 1rem;">Join Our Book Club</h2>
-                            <p style="font-size: 1.125rem; color: hsl(var(--muted-foreground)); margin-bottom: 2rem;">
-                                Subscribe to our newsletter and unlock exclusive perks, early access to new releases, 
-                                and personalized reading recommendations delivered to your inbox weekly.
-                            </p>
-
-                            <div class="newsletter-benefits">
-                                <div class="benefit-item">
-                                    <div class="benefit-icon">
-                                        <svg class="icon" viewBox="0 0 24 24"><polyline points="20 12 20 22 4 22 4 12"></polyline><rect x="2" y="7" width="20" height="5"></rect><line x1="12" y1="22" x2="12" y2="7"></line><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"></path><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"></path></svg>
-                                    </div>
-                                    <div>
-                                        <div class="benefit-title">Exclusive Deals</div>
-                                        <div class="benefit-description">Special discounts for subscribers</div>
-                                    </div>
-                                </div>
-                                <div class="benefit-item">
-                                    <div class="benefit-icon">
-                                        <svg class="icon" viewBox="0 0 24 24"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg>
-                                    </div>
-                                    <div>
-                                        <div class="benefit-title">New Arrivals</div>
-                                        <div class="benefit-description">Be first to know about new books</div>
-                                    </div>
-                                </div>
-                                <div class="benefit-item">
-                                    <div class="benefit-icon">
-                                        <svg class="icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
-                                    </div>
-                                    <div>
-                                        <div class="benefit-title">Curated Lists</div>
-                                        <div class="benefit-description">Personalized recommendations</div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <form class="newsletter-form" onsubmit="handleNewsletterSubmit(event)">
-                                <input type="email" class="newsletter-input" placeholder="Enter your email address" required>
-                                <button type="submit" class="btn btn-lg btn-primary" style="height: 3rem; padding: 0 2rem;">
-                                    Subscribe Now
-                                </button>
-                            </form>
-
-                            <p class="newsletter-disclaimer">
-                                Join 5,000+ book lovers. We respect your privacy. Unsubscribe at any time.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </div>
-
-    <!-- Books Page -->
-    <div id="booksPage" class="page">
-        <div class="container" style="padding-top: 2rem; padding-bottom: 2rem;">
-            <div style="margin-bottom: 2rem;">
-                <h1 style="font-size: 2.25rem; font-weight: 700; margin-bottom: 1.5rem;">Browse Our Collection</h1>
-                
-                <div style="margin-bottom: 1.5rem; display: flex; flex-direction: column; gap: 1rem;">
-                    <div style="position: relative; flex: 1;">
-                        <svg class="icon" style="position: absolute; left: 0.75rem; top: 50%; transform: translateY(-50%); color: hsl(var(--muted-foreground));" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.35-4.35"></path></svg>
-                        <input type="text" id="searchInput" placeholder="Search by title or author..." style="width: 100%; padding: 0.625rem 0.625rem 0.625rem 2.5rem; border: 1px solid hsl(var(--border)); border-radius: 0.375rem; font-size: 0.875rem;" oninput="filterBooks()">
-                    </div>
-                </div>
-
-                <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;" id="categoryFilters"></div>
-            </div>
-
-            <div style="margin-bottom: 1rem; font-size: 0.875rem; color: hsl(var(--muted-foreground));" id="bookCount"></div>
-            <div class="books-grid" id="allBooksGrid"></div>
-            <div id="noBooksMessage" style="padding: 4rem 0; text-align: center; display: none;">
-                <p style="font-size: 1.125rem; color: hsl(var(--muted-foreground));">No books found matching your criteria.</p>
-            </div>
-        </div>
-    </div>
-
-    <!-- Book Details Page -->
-    <div id="bookDetailsPage" class="page">
-        <div class="container" style="padding-top: 2rem; padding-bottom: 2rem;">
-            <button class="btn btn-outline" onclick="showPage('books')" style="margin-bottom: 1.5rem;">
-                <svg class="icon" viewBox="0 0 24 24" style="margin-right: 0.5rem;"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
-                Back to Books
-            </button>
-            <div id="bookDetailsContent"></div>
-        </div>
-    </div>
-
-    <!-- Cart Page -->
-    <div id="cartPage" class="page">
-        <div class="container" style="padding-top: 2rem; padding-bottom: 2rem;">
-            <h1 style="font-size: 2.25rem; font-weight: 700; margin-bottom: 2rem; color: hsl(var(--foreground));">Shopping Cart</h1>
-            <div id="cartContent"></div>
-        </div>
-    </div>
-
-    <!-- About Page -->
-    <div id="aboutPage" class="page">
-        <div style="position: relative; overflow: hidden; background: linear-gradient(to bottom right, hsl(var(--primary) / 0.1), hsl(var(--accent) / 0.05), hsl(var(--background))); padding: 5rem 0;">
-            <div class="container">
-                <div style="max-width: 56rem; margin: 0 auto; text-align: center;" class="animate-fade-in">
-                    <h1 style="font-size: 3rem; font-weight: 700; margin-bottom: 1.5rem; color: hsl(var(--foreground));">
-                        About <span style="color: hsl(var(--primary));">BookHaven</span>
+                    <h1 class="animate-fade-in" style="animation-delay: 100ms;">
+                        Discover Your Next
+                        <span class="hero-gradient-text">Great Adventure</span>
                     </h1>
-                    <p style="font-size: 1.25rem; color: hsl(var(--muted-foreground)); line-height: 1.75;">
-                        More than just an online bookstore—we're your gateway to countless stories, knowledge, and adventures.
+                    <p class="animate-fade-in" style="animation-delay: 200ms;">
+                        Explore our carefully curated collection of books across every genre. From timeless classics 
+                        to contemporary bestsellers.
                     </p>
+                    <div class="hero-buttons animate-fade-in" style="animation-delay: 400ms;">
+                        <a href="books.html" class="btn btn-lg btn-primary">
+                            Browse Collection
+                            <svg class="icon" viewBox="0 0 24 24" style="margin-left: 0.5rem;"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
+    </section>
 
-        <div class="container" style="padding: 5rem 0;">
-            <div style="display: grid; gap: 3rem; align-items: center;">
-                <div style="max-width: 100%; margin: 0 auto;">
-                    <h2 style="font-size: 2.25rem; font-weight: 700; margin-bottom: 1.5rem; color: hsl(var(--foreground));">Our Story</h2>
-                    <div style="color: hsl(var(--muted-foreground)); line-height: 1.75;">
-                        <p style="font-size: 1.125rem; margin-bottom: 1rem;">
-                            BookHaven was born from a simple idea: <strong style="color: hsl(var(--foreground));">everyone deserves access to great books</strong>. 
-                            What started as a small collection in 2024 has grown into a comprehensive library featuring thousands 
-                            of titles across every genre imaginable.
-                        </p>
-                        <p style="margin-bottom: 1rem;">
-                            We understand that choosing the right book can change your day, your perspective, or even your life. 
-                            That's why we've dedicated ourselves to creating a seamless browsing experience, offering detailed 
-                            descriptions, and maintaining competitive prices without compromising on quality.
-                        </p>
-                        <p>
-                            Today, we're proud to serve thousands of readers worldwide, helping them discover their next favorite 
-                            book and supporting their journey through the wonderful world of literature.
-                        </p>
-                    </div>
-                </div>
+    <!-- Category Showcase -->
+    <section class="category-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Explore by Category</h2>
+                <p>Find your next favorite book in any genre</p>
             </div>
+            <div class="category-grid" id="categoryGrid"></div>
         </div>
-    </div>
+    </section>
 
-    <!-- Contact Page -->
-    <div id="contactPage" class="page">
-        <div style="position: relative; overflow: hidden; background: linear-gradient(to bottom right, hsl(var(--primary) / 0.1), hsl(var(--accent) / 0.05), hsl(var(--background))); padding: 5rem 0;">
-            <div class="container">
-                <div style="max-width: 48rem; margin: 0 auto; text-align: center;" class="animate-fade-in">
-                    <div style="display: inline-flex; border-radius: 9999px; background: hsl(var(--primary) / 0.1); padding: 1rem; margin-bottom: 1.5rem;">
-                        <svg class="icon-xl" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
-                    </div>
-                    <h1 style="font-size: 3rem; font-weight: 700; margin-bottom: 1.5rem; color: hsl(var(--foreground));">
-                        Let's <span style="color: hsl(var(--primary));">Connect</span>
-                    </h1>
-                    <p style="font-size: 1.25rem; color: hsl(var(--muted-foreground));">
-                        Have questions about books or your order? We're here to help! Reach out and we'll respond as quickly as possible.
-                    </p>
+    <!-- Featured Books -->
+    <section class="featured-section">
+        <div class="container">
+            <div class="section-header animate-fade-in">
+                <div class="featured-badge">
+                    <svg class="icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
+                    <span>Editor's Choice</span>
                 </div>
+                <h2>Featured Books</h2>
+                <p style="max-width: 42rem; margin: 0 auto;">Handpicked selections from our collection—the books everyone's talking about</p>
+            </div>
+            <div class="books-grid" id="featuredBooksGrid"></div>
+            <div class="text-center animate-fade-in">
+                <a href="books.html" class="btn btn-lg btn-outline">
+                    View All Books
+                    <svg class="icon" viewBox="0 0 24 24" style="margin-left: 0.5rem;"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                </a>
             </div>
         </div>
+    </section>
 
-        <div class="container" style="padding: 5rem 0;">
-            <div style="max-width: 42rem; margin: 0 auto; background: white; border-radius: 1rem; padding: 2rem; box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1);">
-                <div style="margin-bottom: 1.5rem;">
-                    <h2 style="font-size: 1.875rem; font-weight: 700; margin-bottom: 0.5rem;">Send a Message</h2>
-                    <p >Fill out the form below and we'll get back to you within 24 hours</p>
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="container">
+            <div class="section-header animate-fade-in">
+                <h2>Why Readers Choose Us</h2>
+                <p>Join our growing community of book enthusiasts</p>
+            </div>
+            <div class="stats-grid">
+                <div class="stat-item animate-fade-in">
+                    <div class="stat-icon">
+                        <svg class="icon-xl" viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>
+                    </div>
+                    <div class="stat-value">45+</div>
+                    <div class="stat-label">Books Available</div>
+                    <div class="stat-description">Across all genres</div>
                 </div>
-                
-                <form id="contactForm" onsubmit="handleContactSubmit(event)" style="display: flex; flex-direction: column; gap: 1.5rem;">
-                    <div>
-                        <label style="display: block; margin-bottom: 0.5rem; font-size: 0.875rem; font-weight: 500;">Your Name *</label>
-                        <input type="text" required placeholder="John Doe" style="width: 100%; padding: 0.5rem; border: 2px solid hsl(var(--border)); border-radius: 0.5rem; font-size: 1rem; transition: all 0.2s;">
+                <div class="stat-item animate-fade-in" style="animation-delay: 100ms;">
+                    <div class="stat-icon">
+                        <svg class="icon-xl" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
                     </div>
-                    <div>
-                        <label style="display: block; margin-bottom: 0.5rem; font-size: 0.875rem; font-weight: 500;">Email Address *</label>
-                        <input type="email" required placeholder="john@example.com" style="width: 100%; padding: 0.5rem; border: 2px solid hsl(var(--border)); border-radius: 0.5rem; font-size: 1rem; transition: all 0.2s;">
+                    <div class="stat-value">5,000+</div>
+                    <div class="stat-label">Happy Readers</div>
+                    <div class="stat-description">Worldwide community</div>
+                </div>
+                <div class="stat-item animate-fade-in" style="animation-delay: 200ms;">
+                    <div class="stat-icon">
+                        <svg class="icon-xl" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
                     </div>
-                    <div>
-                        <label style="display: block; margin-bottom: 0.5rem; font-size: 0.875rem; font-weight: 500;">Subject *</label>
-                        <input type="text" required placeholder="How can we help you?" style="width: 100%; padding: 0.5rem; border: 2px solid hsl(var(--border)); border-radius: 0.5rem; font-size: 1rem; transition: all 0.2s;">
+                    <div class="stat-value">4.9</div>
+                    <div class="stat-label">Average Rating</div>
+                    <div class="stat-description">Customer reviews</div>
+                </div>
+                <div class="stat-item animate-fade-in" style="animation-delay: 300ms;">
+                    <div class="stat-icon">
+                        <svg class="icon-xl" viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline></svg>
                     </div>
-                    <div>
-                        <label style="display: block; margin-bottom: 0.5rem; font-size: 0.875rem; font-weight: 500;">Your Message *</label>
-                        <textarea required placeholder="Tell us what's on your mind..." rows="6" style="width: 100%; padding: 0.5rem; border: 2px solid hsl(var(--border)); border-radius: 0.5rem; font-size: 1rem; resize: vertical; transition: all 0.2s; font-family: inherit;"></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-lg btn-primary" style="width: 100%;">
-                        <svg class="icon" viewBox="0 0 24 24" style="margin-right: 0.5rem;"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
-                        Send Message
-                    </button>
-                </form>
+                    <div class="stat-value">98%</div>
+                    <div class="stat-label">Satisfaction Rate</div>
+                    <div class="stat-description">Return customers</div>
+                </div>
             </div>
         </div>
-    </div>
+    </section>
+
+    <!-- Deals of the Day -->
+    <section class="deals-section">
+        <div class="container">
+            <div class="section-header animate-fade-in">
+                <h2>Today's Hot Deals</h2>
+                <p>Limited time offers - grab them before they're gone</p>
+            </div>
+            <div class="books-grid" id="dealsGrid"></div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="newsletter-section">
+        <div class="container">
+            <div class="newsletter-content">
+                <div class="newsletter-card">
+                    <div class="text-center animate-fade-in">
+                        <div class="newsletter-icon">
+                            <svg class="icon-xl" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                        </div>
+                        <h2 style="font-size: 2.25rem; font-weight: 700; margin-bottom: 1rem;">Join Our Book Club</h2>
+                        <p style="font-size: 1.125rem; color: hsl(var(--muted-foreground)); margin-bottom: 2rem;">
+                            Subscribe to our newsletter and unlock exclusive perks, early access to new releases, 
+                            and personalized reading recommendations delivered to your inbox weekly.
+                        </p>
+
+                        <div class="newsletter-benefits">
+                            <div class="benefit-item">
+                                <div class="benefit-icon">
+                                    <svg class="icon" viewBox="0 0 24 24"><polyline points="20 12 20 22 4 22 4 12"></polyline><rect x="2" y="7" width="20" height="5"></rect><line x1="12" y1="22" x2="12" y2="7"></line><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"></path><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"></path></svg>
+                                </div>
+                                <div>
+                                    <div class="benefit-title">Exclusive Deals</div>
+                                    <div class="benefit-description">Special discounts for subscribers</div>
+                                </div>
+                            </div>
+                            <div class="benefit-item">
+                                <div class="benefit-icon">
+                                    <svg class="icon" viewBox="0 0 24 24"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg>
+                                </div>
+                                <div>
+                                    <div class="benefit-title">New Arrivals</div>
+                                    <div class="benefit-description">Be first to know about new books</div>
+                                </div>
+                            </div>
+                            <div class="benefit-item">
+                                <div class="benefit-icon">
+                                    <svg class="icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
+                                </div>
+                                <div>
+                                    <div class="benefit-title">Curated Lists</div>
+                                    <div class="benefit-description">Personalized recommendations</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <form class="newsletter-form" onsubmit="handleNewsletterSubmit(event)">
+                            <input type="email" class="newsletter-input" placeholder="Enter your email address" required>
+                            <button type="submit" class="btn btn-lg btn-primary" style="height: 3rem; padding: 0 2rem;">
+                                Subscribe Now
+                            </button>
+                        </form>
+
+                        <p class="newsletter-disclaimer">
+                            Join 5,000+ book lovers. We respect your privacy. Unsubscribe at any time.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- Footer -->
     <footer>
@@ -395,11 +256,11 @@
                 <div class="footer-section">
                     <h3>Quick Links</h3>
                     <ul class="footer-links">
-                        <li><a href="#" onclick="showPage('home'); return false;">Home</a></li>
-                        <li><a href="#" onclick="showPage('books'); return false;">Browse Books</a></li>
-                        <li><a href="#" onclick="showPage('about'); return false;">About Us</a></li>
-                        <li><a href="#" onclick="showPage('contact'); return false;">Contact</a></li>
-                        <li><a href="#" onclick="showPage('cart'); return false;">Shopping Cart</a></li>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="books.html">Browse Books</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="cart.html">Shopping Cart</a></li>
                     </ul>
                 </div>
 
@@ -431,6 +292,7 @@
         </div>
     </footer>
 
-    <script src="javascript/script.js"></script>
+    <script src="js/books-data.js"></script>
+    <script src="js/script.js"></script>
 </body>
 </html>
