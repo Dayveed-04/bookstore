@@ -10,6 +10,16 @@ let cart = JSON.parse(localStorage.getItem('bookstore_cart') || '[]');
 let selectedCategory = "All";
 let isLoading = false;
 
+function toggleMobileMenu() {
+    const navLinks = document.getElementById('navLinks');
+    const overlay = document.getElementById('mobileOverlay');
+    
+    if (navLinks && overlay) {
+        navLinks.classList.toggle('active');
+        overlay.classList.toggle('active');
+    }
+}
+
 function toggleTheme() {
     const html = document.documentElement;
     const currentTheme = html.getAttribute('data-theme');
