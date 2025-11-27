@@ -11,14 +11,33 @@ let selectedCategory = "All";
 let isLoading = false;
 
 function toggleMobileMenu() {
-    const navLinks = document.getElementById('navLinks');
-    const overlay = document.getElementById('mobileOverlay');
+    const navLinks = document.querySelector('.nav-links');
+    const overlay = document.querySelector('.mobile-overlay');
     
-    if (navLinks && overlay) {
-        navLinks.classList.toggle('active');
-        overlay.classList.toggle('active');
+    navLinks.classList.toggle('active');
+    overlay.classList.toggle('active');
+    
+    // Prevent body scroll when menu is open
+    if (navLinks.classList.contains('active')) {
+        document.body.style.overflow = 'hidden';
+    } else {
+        document.body.style.overflow = '';
     }
 }
+
+// Close mobile menu when clicking on a nav link
+document.querySelectorAll('.nav-link').forEach(link => {
+    link.addEventListener('click', () => {
+        const navLinks = document.querySelector('.nav-links');
+        const overlay = document.querySelector('.mobile-overlay');
+        
+        if (navLinks.classList.contains('active')) {
+            navLinks.classList.remove('active');
+            overlay.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+    });
+});
 
 function toggleTheme() {
     const html = document.documentElement;
